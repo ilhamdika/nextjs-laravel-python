@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  laravel:
+    build:
+      context: ./laravel
+      dockerfile: Dockerfile
+    container_name: laravel_app
+    volumes:
+      - ./laravel:/var/www/html
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_DATABASE: laravel
+      DB_USERNAME: root
+      DB_PASSWORD: root
+
+  nextjs:
+    build:
+      context: ./nextjs
+      dockerfile: Dockerfile
+    container_name: nextjs_app
+    volumes:
+      - ./nextjs:/app
+    ports:
+      - "3000:3000"
+    command: npm run dev
+
+  django:
+    build:
+      context: ./django
+      dockerfile: Dockerfile
+    container_name: django_app
+    volumes:
+      - ./django:/app
+    ports:
+      - "8001:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: laravel
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
