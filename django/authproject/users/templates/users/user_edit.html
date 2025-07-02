@@ -1,0 +1,8 @@
+<body style="font-family: Arial; background: #fff3cd; padding: 40px;">
+  <h2 style="color: #333;"> Edit User</h2>
+  <form method="post" style="background: white; padding: 20px; border-radius: 8px; max-width: 400px;">
+    {% csrf_token %}
+    <input name="username" value="{{ user.username }}" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;"><br>
+    <button type="submit" style="width: 100%; background: #17a2b8; color: white; border: none; padding: 10px; border-radius: 5px;">Simpan</button>
+  </form>
+</body>

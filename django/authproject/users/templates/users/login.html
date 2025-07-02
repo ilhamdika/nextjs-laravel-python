@@ -1,0 +1,16 @@
+<body style="font-family: Arial; background: #fef6e4; padding: 40px;">
+  <h2 style="color: #333;">🔐 Login</h2>
+
+  {% if error %}
+    <div style="margin-bottom: 15px; background: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px;">
+      {{ error }}
+    </div>
+  {% endif %}
+
+  <form method="post" style="background: white; padding: 20px; border-radius: 8px; max-width: 400px;">
+    {% csrf_token %}
+    <input name="username" placeholder="Username" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;"><br>
+    <input type="password" name="password" placeholder="Password" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc;"><br>
+    <button type="submit" style="width: 100%; background: #2196F3; color: white; border: none; padding: 10px; border-radius: 5px;">Login</button>
+  </form>
+</body>

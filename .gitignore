@@ -1,0 +1,19 @@
+# Laravel
+/laravel/vendor/
+/laravel/.env
+
+# Node
+/nextjs/node_modules/
+/nextjs/.next/
+/nextjs/.env.local
+
+# Django
+/django/venv/
+/django/__pycache__/
+/django/db.sqlite3
+
+# Common
+.env
+*.log
+*.pyc
+.DS_Store

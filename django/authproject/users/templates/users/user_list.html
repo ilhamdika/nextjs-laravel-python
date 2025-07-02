@@ -1,0 +1,15 @@
+<body style="font-family: Arial; background: #f3f4f6; padding: 40px;">
+  <h2 style="color: #333;">Daftar Pengguna</h2>
+  <a href="{% url 'logout' %}" style="text-decoration: none; background: #f44336; color: white; padding: 8px 15px; border-radius: 5px;">Logout</a>
+  <ul style="margin-top: 20px;">
+    {% for user in users %}
+      <li style="background: white; padding: 10px 15px; margin: 10px 0; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+        <span>{{ user.username }}</span>
+        <div>
+          <a href="{% url 'user_edit' user.id %}" style="margin-right: 10px; text-decoration: none; background: #ffc107; color: black; padding: 5px 10px; border-radius: 4px;">Edit</a>
+          <a href="{% url 'user_delete' user.id %}" style="text-decoration: none; background: #e91e63; color: white; padding: 5px 10px; border-radius: 4px;">Hapus</a>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</body>
